@@ -1,0 +1,6 @@
+[submodule "donstu_funcs"]
+	path = donstu_funcs
+	url = git@github.com:levadny/donstu_funcs.git
+[submodule "acana_dotplot"]
+	path = acana_dotplot
+	url = git@github.com:levadny/acana_dotplot.git
