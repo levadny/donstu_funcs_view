@@ -1,6 +1,8 @@
 #pragma once
 #include <QMainWindow>
+#include <vector>
 #include "acana_dotplot/dotplotwidget.h"
+#include "donstu_funcs/functemplate.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,6 +21,11 @@ private:
   Ui::MainWindow *ui;
   DotPlotWidget *plot;
 
-  DotPlotSeries<double> *sHyperbola;
-  DotPlotSeries<double> *sFastOsc;
+  // collect of funcs
+  std::vector<FuncTemplate<double>*> m_funcs;
+  // collect of koefs of funcs
+  std::vector<std::vector<double>> m_koefs;
+
+  // count of series
+  static size_t const kSeriesCount = 30;
 };

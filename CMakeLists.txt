@@ -5,17 +5,17 @@ find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
 
 qt_standard_project_setup()
 
+file(GLOB DONSTU "donstu_funcs/*.cpp" "donstu_funcs/*.c")
+file(GLOB DONSTU "donstu_funcs/*.h" "donstu_funcs/*.hpp")
+
 qt_add_executable(donstu_math_funcs_view
     WIN32 MACOSX_BUNDLE
+    ${DONSTU}
     main.cpp
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-
-    donstu_funcs/funcline.h;
-    donstu_funcs/functemplate.h
-    donstu_funcs/funcfastosc.h
-
+    plotcolors.h
 )
 
 add_subdirectory(acana_dotplot/)
