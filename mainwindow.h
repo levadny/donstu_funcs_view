@@ -1,8 +1,14 @@
 #pragma once
 #include <QMainWindow>
+#include <QListWidgetItem>
+
 #include <vector>
+
+
 #include "acana_dotplot/dotplotwidget.h"
 #include "donstu_funcs/functemplate.h"
+
+#include "simple_genetic/simplegenetic.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,6 +22,11 @@ class MainWindow : public QMainWindow {
 public:
   MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
+
+  void setupCheckboxList(QWidget *parentWidget);
+
+private slots:
+  void on_pbGeneticStep_clicked();
 
 private:
   Ui::MainWindow *ui;

@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1059</width>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>DonSTU_Funcs_View</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,1">
@@ -19,24 +19,35 @@
      <widget class="QWidget" name="wPlots" native="true"/>
     </item>
     <item>
-     <widget class="QGroupBox" name="gbPlots">
-      <property name="title">
-       <string>GroupBox</string>
-      </property>
-      <widget class="QCheckBox" name="cbLine">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>77</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>CheckBox</string>
-       </property>
-      </widget>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="2,1">
+      <item>
+       <widget class="QGroupBox" name="gbFuncs">
+        <property name="title">
+         <string>Functions</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>Genetics</string>
+        </property>
+        <widget class="QPushButton" name="pbGeneticStep">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>80</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>PushButton</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -45,7 +56,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1059</width>
      <height>21</height>
     </rect>
    </property>
