@@ -4,12 +4,11 @@
 #include "plotcolors.h"
 
 #include "donstu_funcs/funcline.h"
-//#include "donstu_funcs/funcarctan.h"
-//#include "donstu_funcs/funcfastosc.h"
-//#include "donstu_funcs/funcmodul.h"
-//#include "donstu_funcs/funcquartic.h"
-//#include "donstu_funcs/funcgauss.h"
-
+#include "donstu_funcs/funcarctan.h"
+#include "donstu_funcs/funcfastosc.h"
+#include "donstu_funcs/funcmodul.h"
+#include "donstu_funcs/funcquartic.h"
+#include "donstu_funcs/funcgauss.h"
 #include "donstu_funcs/funcdamped.h"
 
 #include <typeinfo.h>
@@ -39,12 +38,12 @@ MainWindow::MainWindow(QWidget *parent)
   this->plot->showGrid(true);
 
   // add funcs
-  //this->m_funcs.push_back(new FuncLine({0.75, 10}));
-  //this->m_funcs.push_back(new FuncArctan({50, 2}));
-  //this->m_funcs.push_back(new FuncFastOsc({50, 10, 1}));
-  //this->m_funcs.push_back(new FuncModul({1.25, 15}));
-  //this->m_funcs.push_back(new FuncQuartic({0.0005, 0.008, 3}));
-  //this->m_funcs.push_back(new FuncGauss({70, -0.005}));
+  this->m_funcs.push_back(new FuncLine({0.75, 10}));
+  this->m_funcs.push_back(new FuncArctan({50, 2}));
+  this->m_funcs.push_back(new FuncFastOsc({50, 10, 1}));
+  this->m_funcs.push_back(new FuncModul({1.25, 15}));
+  this->m_funcs.push_back(new FuncQuartic({0.0005, 0.008, 3}));
+  this->m_funcs.push_back(new FuncGauss({70, -0.005}));
   this->m_funcs.push_back(new FuncDamped({0.01, 500}));
 
   // create all series
@@ -142,10 +141,11 @@ void MainWindow::setupCheckboxList(QWidget *parentWidget) {
     // current state of checkbox
     if (item->checkState() == Qt::Checked) {
       // to switch off
-      tmp[index]->setVisible(false);
+      tmp[index]->setVisible(true);
     } else {
       // to switch on
-      tmp[index]->setVisible(true);
+      tmp[index]->setVisible(false);
     }
+    this->plot->update();
   });
 }
