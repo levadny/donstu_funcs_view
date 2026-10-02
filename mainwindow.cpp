@@ -13,6 +13,7 @@
 
 #include <typeinfo.h>
 
+#include <QThread>
 
 MainWindow::MainWindow(QWidget *parent)
   : QMainWindow(parent)
@@ -37,13 +38,19 @@ MainWindow::MainWindow(QWidget *parent)
   this->plot->setGridOYStep(5);
   this->plot->showGrid(true);
 
+  // series for result
+  this->result = this->plot->newSeries();
+  this->result->setDotColor(Qt::red);
+  this->result->setDotSize(5);
+  this->result->setVisible(true);
+
   // add funcs
-  this->m_funcs.push_back(new FuncLine({0.75, 10}));
-  this->m_funcs.push_back(new FuncArctan({50, 2}));
-  this->m_funcs.push_back(new FuncFastOsc({50, 10, 1}));
-  this->m_funcs.push_back(new FuncModul({1.25, 15}));
-  this->m_funcs.push_back(new FuncQuartic({0.0005, 0.008, 3}));
-  this->m_funcs.push_back(new FuncGauss({70, -0.005}));
+  //this->m_funcs.push_back(new FuncLine({0.75, 10}));
+  //this->m_funcs.push_back(new FuncArctan({50, 2}));
+  //this->m_funcs.push_back(new FuncFastOsc({50, 10, 1}));
+  //this->m_funcs.push_back(new FuncModul({1.25, 15}));
+  //this->m_funcs.push_back(new FuncQuartic({0.0005, 0.008, 3}));
+  //this->m_funcs.push_back(new FuncGauss({70, -0.005}));
   this->m_funcs.push_back(new FuncDamped({0.01, 500}));
 
   // create all series
@@ -83,36 +90,9 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::on_pbGeneticStep_clicked() {
-  /*&
-    GeneticOptimizer::Config cfg;
-    cfg.dim         = 3;
-    cfg.popSize     = 80;
-    cfg.generations = 150;
-    cfg.lowerBound  = {500.0, 5.0, 1.0};   // обороты, зазор, скорость
-    cfg.upperBound  = {1200.0, 25.0, 8.0};
-    cfg.minimize    = true;                // ищем минимум потерь
+  GA ga(/* xMin */ -100.0, /* xMax */ 100.0,
+        /* popSize */ 20, /* seed */ 42);
 
-    GeneticOptimizer ga(cfg);
-
-    // Пришли экспериментальные данные (X, Y)
-    ga.addSample({600, 10, 2}, 3.5);
-    ga.addSample({700, 12, 3}, 2.1);
-    ga.addSample({800, 15, 4}, 1.4);
-    ga.addSample({900, 18, 5}, 0.9);
-    ga.addSample({1000, 20, 6}, 1.7);
-    ga.addSample({1100, 22, 7}, 3.2);
-    // ... сколько угодно точек
-
-    auto result = ga.run();
-    if (result.valid) {
-      std::cout << "Лучшая точка X = [";
-      for (double v : result.bestX) std::cout << v << " ";
-      std::cout << "]\n";
-      std::cout << "Ожидаемый Y = " << result.bestY << "\n";
-    }
-    return 0;
-  }
-  */
 }
 
 void MainWindow::setupCheckboxList(QWidget *parentWidget) {

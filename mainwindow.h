@@ -8,7 +8,7 @@
 #include "acana_dotplot/dotplotwidget.h"
 #include "donstu_funcs/functemplate.h"
 
-#include "simple_genetic/simplegenetic.h"
+#include "ghost_simple_genetic/simplegenetic.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -36,6 +36,9 @@ private:
   std::vector<FuncTemplate<double>*> m_funcs;
   // collect of koefs of funcs
   std::vector<std::vector<double>> m_koefs;
+
+  // series for result
+  DotPlotSeries<double> *result;
 
   // count of series
   static size_t const kSeriesCount = 30;

@@ -5,12 +5,16 @@ find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
 
 qt_standard_project_setup()
 
-file(GLOB DONSTU "donstu_funcs/*.cpp" "donstu_funcs/*.c")
-file(GLOB DONSTU "donstu_funcs/*.h" "donstu_funcs/*.hpp")
+file(GLOB DONSTU "donstu_funcs/*.cpp")
+file(GLOB DONSTU "donstu_funcs/*.h")
+
+file(GLOB GSG "ghost_simple_genetic/*.cpp")
+file(GLOB GSG "ghost_simple_genetic/*.h")
 
 qt_add_executable(donstu_funcs_view
     WIN32 MACOSX_BUNDLE
     ${DONSTU}
+    ${GSG}
     main.cpp
     mainwindow.cpp
     mainwindow.h
