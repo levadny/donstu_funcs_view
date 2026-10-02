@@ -4,3 +4,6 @@
 [submodule "acana_dotplot"]
 	path = acana_dotplot
 	url = git@github.com:levadny/acana_dotplot.git
+[submodule "ghost_simple_genetic"]
+	path = ghost_simple_genetic
+	url = git@github.com:levadny/ghost_simple_genetic.git
